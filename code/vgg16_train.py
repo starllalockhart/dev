@@ -38,17 +38,17 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 # This is a generator that will read pictures found in
-# subfolders of 'data/train', and indefinitely generate
+# subfolders of 'data/input/train', and indefinitely generate
 # batches of augmented image data
 train_generator = train_datagen.flow_from_directory(
-        'data/train',  # this is the target directory
+        'data/input/train',  # this is the target directory
         target_size=(224, 224),  # all images will be resized to 224x224
         batch_size=batch_size,
         class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
 
 # This is a similar generator, for validation data
 validation_generator = test_datagen.flow_from_directory(
-        'data/validation',
+        'data/input/validation',
         target_size=(224, 224),
         batch_size=batch_size,
         class_mode='binary')
